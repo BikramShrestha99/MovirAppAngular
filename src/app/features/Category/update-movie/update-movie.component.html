@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Edit Entity</h2>
+    <form #form="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="movie.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="director">Director:</label>
+        <input type="text" class="form-control" id="director" [(ngModel)]="movie.director" name="director" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Genre:</label>
+        <input type="text" class="form-control" id="Genre" [(ngModel)]="movie.genre" name="Genre" required>
+      </div>
+      <div class="form-group">
+        <label for="name">ReleaseDate:</label>
+        <input type="text" class="form-control" id="ReleaseDate" [(ngModel)]="movie.releaseDate" name="ReleaseDate" required>
+      </div>
+      <button  [routerLink]="['/admin/categories']" (click)="goToUpdateItem()"  class="btn btn-primary">Save</button>
+      <a [routerLink]="['/admin/categories']"  class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+  
