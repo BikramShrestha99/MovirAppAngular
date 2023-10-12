@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #404040;
+    background-color: #eee;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.movie-info {
+    flex: 1;
+    text-align: center;
+}
+
+.movie-image {
+    width: 80%; /* Make the image fill 80% of the container width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Set a maximum width for the image */
+    margin-top: 50px; /* Adjust margin to position from mid to left */
+    object-fit: cover;
+}
+
+.movie-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-detail {
+    list-style: none;
+    padding: 0;
+    dt {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    dd {
+        margin-bottom: 10px;
+    }
+}
+
+.comments-section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7; /* Light background color for the entire comment section */
+}
+
+.comments-box {
+    margin-top: 10px;
+    padding: 15px; /* Add some padding inside the comments box */
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comment-item:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even comments */
+}
+
+.comment-form-container {
+    width: 520px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.heading {
+    color: #666666;
+    text-align: center;
+} 
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1300px;
+}
+
+.status-box {
+    width: 100%; 
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.form-control {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    text-align: right;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.posts {
+    clear: both;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.posts li {
+    background-color: #fff;
+    border: 1.5px solid #d8d8d8;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    min-height: 42px;
+    box-shadow: 8px 8px 5px #888888;
+}

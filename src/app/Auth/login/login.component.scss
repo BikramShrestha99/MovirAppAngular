@@ -88,3 +88,33 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+.error-message {
+    text-align: center;
+    color: white;
+    background-color: red;
+    padding: 3px;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+
+.error-messages {
+    text-align: center;
+    color: white;
+    background-color: red;
+	padding: 3px;
+    padding: 5px;
+    border-radius: 3px;
+    position: fixed;
+    top: 0;
+   
+}
+.success-message {
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+	padding: 3px;
+    padding: 5px;
+    border-radius: 3px;
+	position: fixed;
+	top: 0;
+  }

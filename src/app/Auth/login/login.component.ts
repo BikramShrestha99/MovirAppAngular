@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthServiceService } from 'src/app/auth-services/auth-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthServiceService } from 'src/app/Auth/login/auth-services/auth-service.service';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/auth-guard/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +18,17 @@ export class LoginComponent implements OnInit {
     UserName:'',
     Email:'',
     Password:'',
+    FirstName:'',
+    LastName:''
    
   }
   loginObj:any={
     Email:'',
     Password:''
   }
-  constructor(private authService:AuthServiceService ,private route:Router){ }
+  constructor(private authService:AuthServiceService ,public authguardService:AuthService,
+    private route:Router,
+    private toastr: ToastrService){ }
   ngOnInit(): void {
     const localData= localStorage.getItem('signUpUsers');
     debugger
@@ -28,36 +36,54 @@ export class LoginComponent implements OnInit {
     {
       this.signupUsers=JSON.parse(localData);
     }
-    
   }
-  onSignUp(){
-    this.signupUsers.push(this.signupObj);
-    localStorage.setItem('signUpUsers',JSON.stringify(this.signupUsers));
-    this.signupObj={
-      userName:'',
-      email:'',
-      password:'',
-      
-    };
+  formSubmitted: boolean = false;
+
+  validateForm(): boolean {
+    if (!this.signupObj.Email || !this.signupObj.Password || !this.signupObj.ConfirmPassword || 
+    !this.signupObj.FirstName ||!this.signupObj.LastName || !this.signupObj.ConfirmPassword) {
+      return false;
+    }
+
+    if (this.signupObj.Password !== this.signupObj.ConfirmPassword) {
+      return false;
+    }
+
+    return true;
   }
-  onLogin(){
-    debugger 
+
+
+  onSignUp() {
+    debugger
+    if (this.validateForm()) {
+    this.authService.onSignUp(this.signupObj).subscribe((res: any) => {
+      console.log('res', res);
+      // this.signupObj = {
+      //   // UserName: '',
+      //   // Email: '',
+      //   // Password: '',
+      //   // FirstName:'',
+      //   // LastName:''
+      // };
+      this.formSubmitted = true;
+    });
+  }
+  }
+
+  xonLogin():void{ 
+    this.authguardService.authenticate();
     this.authService.onLogin(this.loginObj).subscribe((res:any)=>{
       console.log('res',res)
       localStorage.setItem('token',res.token);
-      this.route.navigateByUrl('/admin/categories')
-
+      this.route.navigateByUrl('/home/dashboard')
+      setTimeout(() => {
+        localStorage.removeItem('token');
+        console.log('Token has expired and removed.');
+        this.route.navigateByUrl('');
+      }, 2400000 );  
     })
-    // debugger
-    // const isUserExist= this.signupUsers.find(m=>m.email==this.loginObj.email && m.password==this.loginObj.password);
-
-    //    if(isUserExist!=undefined){
-    //       alert('User Login Successfully');
-    //    }else{
-    //     alert('Wrong Email or PassWord');
-    //    }
-
   }
+}
 
   // formGroup!: FormGroup;
   // constructor(private authService: AuthServiceService ){}
@@ -83,4 +109,4 @@ export class LoginComponent implements OnInit {
   //   }
   // }
 
-}
+

@@ -18,7 +18,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { CustomInterceptorService } from './auth-services/custom-interceptor.service';
+import { CustomInterceptorService } from './Auth/login/auth-services/custom-interceptor.service';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ListUserComponent } from './features/User/list-user/list-user.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { SearchUserFilterPipe } from './search-user-filter.pipe';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+// import { GetUserComponent } from './features/User/get-user/get-user.component';
+
 
 
 @NgModule({
@@ -30,7 +39,13 @@ import { CustomInterceptorService } from './auth-services/custom-interceptor.ser
     GetMovieByIdComponent,
     UpdateMovieComponent,
     DeleteMovieComponent,
-    LoginComponent, 
+    LoginComponent,
+    HomepageComponent,
+    ListUserComponent,
+    SearchFilterPipe,
+    SearchUserFilterPipe
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -45,7 +60,12 @@ import { CustomInterceptorService } from './auth-services/custom-interceptor.ser
     MatCardModule ,
     MatToolbarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    MatPaginatorModule,
+   
+    
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass:CustomInterceptorService,

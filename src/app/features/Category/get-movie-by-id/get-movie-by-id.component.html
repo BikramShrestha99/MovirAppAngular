@@ -1,20 +1,48 @@
-<div class="container">
-    <h1> Movie Detail</h1>
-  
-    <dl class="product-detail">
-      <dt>Name:</dt>
-      <dd>{{ movie.name }}</dd>
-  
-      <dt>Director:</dt>
-      <dd>{{ movie.director }}</dd>
-  
-      <dt>Genre:</dt>
-      <dd>{{ movie.genre }}</dd>
-  
-      <dt>ReleaseDate:</dt>
-      <dd>${{ movie.releaseDate }}</dd>
-    </dl>
-<!--   
-    <button (click)="addToCart()">Add to Cart</button> -->
+<body>
+  <div class="container">
+      <div class="movie-info">
+          <img class="movie-image" src="https://localhost:7169/{{movie.photoPath}}" alt="Movie Poster">
+      </div>
+      <div class="movie-details">
+          <h1>Movie Detail</h1>
+          <dl class="product-detail">
+              <dt>Name:</dt>
+              <dd>{{ movie.name }}</dd>
+
+              <dt>Director:</dt>
+              <dd>{{ movie.director }}</dd>
+
+              <dt>Genre:</dt>
+              <dd>{{ movie.genre }}</dd>
+
+              <dt>Release Date:</dt>
+              <dd>{{ movie.releaseDate }}</dd>
+          </dl>
+      </div>
   </div>
-  
+
+  <div class="comments-section">
+      <div class="comments-box">
+          <h2>Comments:</h2>
+          <ul class="comments-list">
+              <li class="comment-item" *ngFor="let comment of comments; let i = index">
+                  {{ comment.commentDesc }}
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="comment-form-container">
+      <h3 class="heading">Add A Comment Below</h3>
+      <form class="comment-form" (ngSubmit)="addComment()">
+      <div class="comment-form">
+          <textarea class="form-control status-box" rows="3" id="commentText" [(ngModel)]="comment.commentDesc" placeholder="Enter your comment here..." name="commentText" required></textarea>
+          <div class="button-group pull-right">
+              <button type="submit" class="btn btn-primary">Post</button>
+          </div>
+      </div>
+    </form>
+      <ul class="posts">
+      </ul>
+  </div>
+</body>

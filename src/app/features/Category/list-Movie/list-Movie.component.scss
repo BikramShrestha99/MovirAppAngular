@@ -1,0 +1,128 @@
+/* Add your global styles here */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Custom paginator styles */
+.mat-paginator {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.mat-paginator-page-size,
+.mat-select-arrow {
+    color: #1976d2;
+}
+
+.mat-paginator-range-label {
+    color: #333;
+    font-weight: bold;
+}
+
+.mat-paginator-navigation-previous,
+.mat-paginator-navigation-next {
+    color: #1976d2;
+}
+
+.mat-paginator-navigation-disabled {
+    color: #ccc;
+}
+
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the movie cards horizontally */
+}
+
+.movie-card {
+  max-width: 300px;
+  margin: 10px;
+}
+
+.movie-card {
+    max-width: 300px;
+    margin: 10px;
+}
+
+
+.search-hero {
+    position: relative;
+    text-align: center;
+    top: 10px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 30%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.small-search-bar {
+    width: 400px; /* Adjust the width as needed */
+}
+
+.pagination {
+    justify-content: center;
+}
+
+
+
+//new css
+
+ /* NAV */
+ nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 70px 0px 0px;
+  }
+  .logo {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+  }
+  form {
+    position: relative;
+  }
+  .search_input {
+    width: 550px;
+    padding: 15px 58px 15px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 30px;
+    border: 0px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  ::-webkit-input-placeholder {
+    text-transform: uppercase;
+  }
+  ::-moz-placeholder {
+    text-transform: uppercase;
+  }
+  .search_input:focus {
+    border: 0;
+    outline: 0;
+  }
+  .search_icon {
+    position: absolute;
+    top: 10px;
+    right: 24px;
+  }
+  .search_icon img {
+    width: 20px;
+  }
+  
+
+

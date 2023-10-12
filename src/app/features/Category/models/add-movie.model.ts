@@ -2,6 +2,6 @@ export interface AddMovie{
     Name:string
     Director:string;
     Genre:string;
-    ReleaseDate:Date;
+    ReleaseDate:Date|null;
     MovieImage: File|null;
 }
